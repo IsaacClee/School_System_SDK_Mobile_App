@@ -21,6 +21,8 @@
             android:exported="false" />
         <activity
             android:name=".UI.ProductList"
+            android:parentActivityName=".UI.MainActivity"
+            android:label="Product List"
             android:exported="false" />
         <activity
             android:name=".UI.MainActivity"

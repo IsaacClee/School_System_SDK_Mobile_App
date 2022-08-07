@@ -29,6 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Enter"
+        android:onClick="EnterHere"
         tools:layout_editor_absoluteX="155dp"
         tools:layout_editor_absoluteY="531dp"
         app:layout_constraintBottom_toBottomOf="parent"
