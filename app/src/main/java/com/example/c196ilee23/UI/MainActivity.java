@@ -1,8 +1,10 @@
-package com.example.c196ilee23;
+package com.example.c196ilee23.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.c196ilee23.R;
 
 public class MainActivity extends AppCompatActivity {
 
