@@ -20,7 +20,9 @@
         android:id="@+id/imageView"
         android:layout_width="402dp"
         android:layout_height="88dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:srcCompat="@drawable/ic_baseline_eco_24" />
 
