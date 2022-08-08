@@ -2,9 +2,11 @@ package com.example.c196ilee23.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.c196ilee23.R;
 
@@ -35,5 +37,9 @@ public class ProductList extends AppCompatActivity {
     }
 
 
+    public void goToPartsList(View view) {
+        Intent intent=new Intent(ProductList.this, PartList.class);
+        startActivity(intent);
+    }
 
 }
