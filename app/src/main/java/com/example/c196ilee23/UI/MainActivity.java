@@ -23,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent= new Intent(MainActivity.this, ProductList.class );
         startActivity(intent);
         Repository repo = new Repository(getApplication());
-        Product product = new Product(1, "Unicycle", 100.00);
+        Product product = new Product(2, "Bike", 200.00);
         repo.insert(product);
-        Part part = new Part(1,"Wheel", 25.00, 1);
+        Part part = new Part(2,"Brake", 35.00, 2);
         repo.insert(part);
     }
 
