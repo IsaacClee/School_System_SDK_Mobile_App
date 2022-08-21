@@ -2,6 +2,7 @@ package com.example.c196ilee23.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -41,5 +42,10 @@ public class PartList extends AppCompatActivity {
             product = new Product(productID, editName.getText().toString(), Double.parseDouble(editPrice.getText().toString()));
             repository.update(product);
         }
+    }
+
+    public void goToPartDetail(View view) {
+        Intent intent=new Intent(PartList.this, PartDetail.class);
+        startActivity(intent);
     }
 }
