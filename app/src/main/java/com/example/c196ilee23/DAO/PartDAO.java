@@ -24,6 +24,6 @@ public interface PartDAO {
     void delete(Part part);
 
     @Query("SELECT * FROM parts ORDER BY partID ASC")
-    List<Product> getAllParts();
+    List<Part> getAllParts();
 
 }

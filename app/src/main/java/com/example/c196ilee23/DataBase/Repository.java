@@ -26,5 +26,87 @@ public class Repository {
         mProductDAO=db.productDAO();
     }
 
+    // Products
+    public void getAllProducts(Product product){
+        databaseExecutor.execute(()->{
+            mAllProducts = mProductDAO.getAllProducts();
+        });
+        try{
+            Thread.sleep(1000);
+        } catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    public void insert(Product product){
+        databaseExecutor.execute(()->{
+            mProductDAO.insert(product);
+        });
+        try{
+            Thread.sleep(1000);
+        } catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    public void update(Product product){
+        databaseExecutor.execute(()->{
+            mProductDAO.update(product);
+        });
+        try{
+            Thread.sleep(1000);
+        } catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    public void delete(Product product){
+        databaseExecutor.execute(()->{
+            mProductDAO.delete(product);
+        });
+        try{
+            Thread.sleep(1000);
+        } catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
+    // Parts
+    public void getAllParts(Part part){
+        databaseExecutor.execute(()->{
+            mAllParts = mPartDAO.getAllParts();
+        });
+        try{
+            Thread.sleep(1000);
+        } catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    public void insert(Part part){
+        databaseExecutor.execute(()->{
+            mPartDAO.insert(part);
+        });
+        try{
+            Thread.sleep(1000);
+        } catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    public void update(Part part){
+        databaseExecutor.execute(()->{
+            mPartDAO.update(part);
+        });
+        try{
+            Thread.sleep(1000);
+        } catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    public void delete(Part part){
+        databaseExecutor.execute(()->{
+            mPartDAO.delete(part);
+        });
+        try{
+            Thread.sleep(1000);
+        } catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
