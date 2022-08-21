@@ -18,7 +18,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_margin="20dp"
+            >
+
              <LinearLayout
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
@@ -26,16 +29,13 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="H1 1"></TextView>
-             <TextView
+                android:text="Product Name:"></TextView>
+             <EditText
+                 android:id="@+id/editProductName"
                  android:layout_height="wrap_content"
                  android:layout_width="wrap_content"
-                 android:text="H1 2"></TextView>
-             <TextView
-                 android:layout_height="wrap_content"
-                 android:layout_width="wrap_content"
-                 android:text="H1 3"></TextView>
-                 </LinearLayout>
+                 android:hint="tricycle"></EditText>
+             </LinearLayout>
             <LinearLayout
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
@@ -43,34 +43,14 @@
                 <TextView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:text="H1 4"></TextView>
-                <TextView
+                    android:text="Product Price:"></TextView>
+                <EditText
+                    android:id="@+id/editProductPrice"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:text="H1 5"></TextView>
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="H1 6"></TextView>
-            </LinearLayout>
-            <LinearLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:orientation="horizontal">
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="H1 7"></TextView>
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="H1 8"></TextView>
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="H1 9"></TextView>
-            </LinearLayout>
+                    android:hint="$50.00"></EditText>
 
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

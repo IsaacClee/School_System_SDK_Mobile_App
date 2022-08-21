@@ -27,7 +27,7 @@ public class Repository {
     }
 
     // Products
-    public void getAllProducts(Product product){
+    public List<Product> getAllProducts(){
         databaseExecutor.execute(()->{
             mAllProducts = mProductDAO.getAllProducts();
         });
@@ -36,6 +36,7 @@ public class Repository {
         } catch(InterruptedException e) {
             e.printStackTrace();
         }
+        return mAllProducts;
     }
     public void insert(Product product){
         databaseExecutor.execute(()->{
@@ -69,7 +70,7 @@ public class Repository {
     }
 
     // Parts
-    public void getAllParts(Part part){
+    public List<Part> getAllParts(){
         databaseExecutor.execute(()->{
             mAllParts = mPartDAO.getAllParts();
         });
@@ -78,6 +79,7 @@ public class Repository {
         } catch(InterruptedException e) {
             e.printStackTrace();
         }
+        return mAllParts;
     }
     public void insert(Part part){
         databaseExecutor.execute(()->{
