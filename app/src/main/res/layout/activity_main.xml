@@ -7,34 +7,60 @@
     tools:context=".UI.MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome to EcoBike!"
         android:id="@+id/textView"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="262dp"
+        android:layout_height="66dp"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="30dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="Welcome to"
+        android:textColor="#051094"
+        android:textSize="40dp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="369dp"
+        android:layout_height="73dp"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="80dp"
+        android:text="Enrollify"
+        android:textColor="@color/black"
+        android:textSize="60dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="402dp"
-        android:layout_height="88dp"
+        android:layout_width="252dp"
+        android:layout_height="140dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:srcCompat="@drawable/ic_baseline_eco_24" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enter"
+        android:text="SELECT TERM"
         android:onClick="EnterHere"
         tools:layout_editor_absoluteX="155dp"
         tools:layout_editor_absoluteY="531dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/white"
+        android:backgroundTint="#051094"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
