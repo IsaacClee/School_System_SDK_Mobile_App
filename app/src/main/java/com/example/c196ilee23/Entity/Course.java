@@ -10,8 +10,8 @@ public class Course {
     @PrimaryKey(autoGenerate = true)
     private int courseID;
     private String courseTitle;
-    private Date startDate;
-    private Date endDate;
+    private Integer startDate;
+    private Integer endDate;
     private String status;
     private String courseInstructor;
     private String instructorPhone;
@@ -19,16 +19,7 @@ public class Course {
     private String courseNotes;
     private String termTitle;
 
-    public Course(int courseID,
-                  String courseTitle,
-                  Date startDate,
-                  Date endDate,
-                  String status,
-                  String courseInstructor,
-                  String instructorPhone,
-                  String instructorEmail,
-                  String courseNotes,
-                  String courseName) {
+    public Course(int courseID, String courseTitle, Integer startDate, Integer endDate, String status, String courseInstructor, String instructorPhone, String instructorEmail, String courseNotes, String termTitle) {
         this.courseID = courseID;
         this.courseTitle = courseTitle;
         this.startDate = startDate;
@@ -38,7 +29,7 @@ public class Course {
         this.instructorPhone = instructorPhone;
         this.instructorEmail = instructorEmail;
         this.courseNotes = courseNotes;
-        this.termTitle = courseName;
+        this.termTitle = termTitle;
     }
 
     @Override
@@ -65,11 +56,11 @@ public class Course {
         return courseTitle;
     }
 
-    public Date getStartDate() {
+    public Integer getStartDate() {
         return startDate;
     }
 
-    public Date getEndDate() {
+    public Integer getEndDate() {
         return endDate;
     }
 
@@ -105,11 +96,11 @@ public class Course {
         this.courseTitle = courseTitle;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(Integer startDate) {
         this.startDate = startDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(Integer endDate) {
         this.endDate = endDate;
     }
 

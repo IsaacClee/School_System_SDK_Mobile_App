@@ -6,21 +6,21 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
-import com.example.c196ilee23.Entity.Part;
+
+import com.example.c196ilee23.Entity.Assessment;
 import java.util.List;
 
 @Dao
-public interface PartDAO {
+public interface AssessmentDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insert(Part part);
+    void insert(Assessment assessment);
 
     @Update
-    void update(Part part);
+    void update(Assessment assessment);
 
     @Delete
-    void delete(Part part);
+    void delete(Assessment assessment);
 
-    @Query("SELECT * FROM parts ORDER BY partID ASC")
-    List<Part> getAllParts();
+
 
 }

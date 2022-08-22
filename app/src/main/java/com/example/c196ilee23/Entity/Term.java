@@ -3,17 +3,17 @@ package com.example.c196ilee23.Entity;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 @Entity(tableName = "terms")
 public class Term {
     @PrimaryKey(autoGenerate = true)
     private int termId;
     private String termTitle;
-    private Date startDate;
-    private Date endDate;
+    private Integer startDate;
+    private Integer endDate;
 
-    public Term(int termId, String termTitle, Date startDate, Date endDate){
+    public Term(int termId, String termTitle, Integer startDate, Integer endDate){
         this.termId = termId;
         this.termTitle = termTitle;
         this.startDate = startDate;
@@ -38,11 +38,11 @@ public class Term {
         this.termTitle = termTitle;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(Integer startDate) {
         this.startDate = startDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(Integer endDate) {
         this.endDate = endDate;
     }
 
@@ -54,11 +54,11 @@ public class Term {
         return termTitle;
     }
 
-    public Date getStartDate() {
+    public Integer getStartDate() {
         return startDate;
     }
 
-    public Date getEndDate() {
+    public Integer getEndDate() {
         return endDate;
     }
 }
