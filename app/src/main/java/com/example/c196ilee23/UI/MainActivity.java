@@ -12,7 +12,7 @@ import com.example.c196ilee23.Entity.Product;
 import com.example.c196ilee23.R;
 
 public class MainActivity extends AppCompatActivity {
-
+    public static int numAlert;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
