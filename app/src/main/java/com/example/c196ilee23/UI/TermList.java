@@ -1,5 +1,6 @@
 package com.example.c196ilee23.UI;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -47,5 +48,7 @@ public class TermList extends AppCompatActivity {
     }
 
     public void goToCourseList(View view) {
+        Intent intent=new Intent(TermList.this, TermDetails.class);
+        startActivity(intent);
     }
 }

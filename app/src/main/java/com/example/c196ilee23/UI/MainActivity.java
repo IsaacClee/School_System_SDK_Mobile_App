@@ -30,10 +30,10 @@ public class MainActivity extends AppCompatActivity {
         repo.insert(term);
         repo.insert(term2);
         repo.insert(term3);
-//        Product product = new Product(2, "Bike", 200.00);
-//        repo.insert(product);
-//        Part part = new Part(2,"Brake", 35.00, 2);
-//        repo.insert(part);
+        Product product = new Product(2, "Bike", 200.00);
+        repo.insert(product);
+        Part part = new Part(2,"Brake", 35.00, 2);
+        repo.insert(part);
 
     }
 

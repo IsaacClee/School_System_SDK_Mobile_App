@@ -21,8 +21,11 @@
             android:exported="false"
             android:label="Term List"
             android:parentActivityName=".UI.MainActivity" />
-
-
+        <activity
+            android:name=".UI.TermDetails"
+            android:exported="false"
+            android:label="Term Details"
+            android:parentActivityName=".UI.TermList" />
         <receiver
             android:name=".UI.MyReceiver"
             android:enabled="true"
