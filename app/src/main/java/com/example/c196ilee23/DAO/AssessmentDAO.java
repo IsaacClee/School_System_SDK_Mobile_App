@@ -8,6 +8,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.c196ilee23.Entity.Assessment;
+
 import java.util.List;
 
 @Dao
@@ -21,6 +22,7 @@ public interface AssessmentDAO {
     @Delete
     void delete(Assessment assessment);
 
-
+    @Query("SELECT * FROM assessments ORDER BY assessmentID ASC")
+    List<Assessment> getAllAssessments();
 
 }

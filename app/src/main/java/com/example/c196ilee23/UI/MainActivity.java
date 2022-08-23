@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         repo.insert(product);
         Part part = new Part(2,"Brake", 35.00, 2);
         repo.insert(part);
+
     }
 
 }
