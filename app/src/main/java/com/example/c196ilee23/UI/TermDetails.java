@@ -7,6 +7,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.c196ilee23.DataBase.Repository;
+import com.example.c196ilee23.Entity.Term;
 import com.example.c196ilee23.R;
 
 public class TermDetails extends AppCompatActivity {
@@ -37,6 +38,22 @@ public class TermDetails extends AppCompatActivity {
 
 
     public void saveButton(View view) {
+        Term term;
+        if (termID == -1) {
+            int newId = repository.getAllTerms().get(repository.getAllTerms().size() - 1).getTermId() + 1;
+            term = new Term(newId,
+                    editTitle.getText().toString(),
+                    Integer.parseInt(editStartDate.getText().toString()),
+                    Integer.parseInt(editEndDate.getText().toString()));
+            repository.insert(term);
+        } else {
+            term = new Term(termID,
+                    editTitle.getText().toString(),
+                    Integer.parseInt(editStartDate.getText().toString()),
+                    Integer.parseInt(editEndDate.getText().toString()));
+            repository.update(term);
+        }
+
     }
 
     public void goToCourseDetail(View view) {

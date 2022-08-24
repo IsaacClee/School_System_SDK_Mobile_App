@@ -42,6 +42,7 @@ public class PartList extends AppCompatActivity {
             product = new Product(productID, editName.getText().toString(), Double.parseDouble(editPrice.getText().toString()));
             repository.update(product);
         }
+
     }
 
     public void goToPartDetail(View view) {
