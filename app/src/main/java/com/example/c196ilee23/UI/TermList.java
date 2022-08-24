@@ -47,7 +47,7 @@ public class TermList extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void goToCourseList(View view) {
+    public void goToTermDetails(View view) {
         Intent intent=new Intent(TermList.this, TermDetails.class);
         startActivity(intent);
     }

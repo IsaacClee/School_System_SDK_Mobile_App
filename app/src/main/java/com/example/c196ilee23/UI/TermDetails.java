@@ -5,10 +5,15 @@ import android.view.View;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.c196ilee23.DataBase.Repository;
+import com.example.c196ilee23.Entity.Course;
 import com.example.c196ilee23.Entity.Term;
 import com.example.c196ilee23.R;
+
+import java.util.List;
 
 public class TermDetails extends AppCompatActivity {
     EditText editTitle;
@@ -34,6 +39,15 @@ public class TermDetails extends AppCompatActivity {
         editStartDate.setText(Integer.toString(startDate));
         editEndDate.setText(Integer.toString(endDate));
         repository = new Repository(getApplication());
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        RecyclerView recyclerView = findViewById(R.id.recyclerview2);
+        Repository repo = new Repository(getApplication());
+        List<Course> courses = repo.getAllCourse();
+        final CourseAdapter adapter = new CourseAdapter(this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter.setCourses(courses);
     }
 
 
@@ -57,6 +71,15 @@ public class TermDetails extends AppCompatActivity {
     }
 
     public void goToCourseDetail(View view) {
+    }
+
+    public void deleteTerm(View view) {
+        Term term;
+        term = new Term(termID,
+                editTitle.getText().toString(),
+                Integer.parseInt(editStartDate.getText().toString()),
+                Integer.parseInt(editEndDate.getText().toString()));
+        repository.delete(term);
     }
 
 }
