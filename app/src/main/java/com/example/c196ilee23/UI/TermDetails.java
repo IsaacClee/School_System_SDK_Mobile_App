@@ -1,6 +1,7 @@
 package com.example.c196ilee23.UI;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -13,6 +14,7 @@ import com.example.c196ilee23.Entity.Course;
 import com.example.c196ilee23.Entity.Term;
 import com.example.c196ilee23.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TermDetails extends AppCompatActivity {
@@ -28,6 +30,7 @@ public class TermDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_term_detail);
+        // Populate Term information
         editTitle = findViewById(R.id.editTermTitle);
         editStartDate = findViewById(R.id.editTermStartDate);
         editEndDate = findViewById(R.id.editTermEndDate);
@@ -39,15 +42,21 @@ public class TermDetails extends AppCompatActivity {
         editStartDate.setText(Integer.toString(startDate));
         editEndDate.setText(Integer.toString(endDate));
         repository = new Repository(getApplication());
-
+        // Populate Course List
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         RecyclerView recyclerView = findViewById(R.id.recyclerview2);
         Repository repo = new Repository(getApplication());
         List<Course> courses = repo.getAllCourse();
+        List<Course> filteredCourses = new ArrayList<>();
+        for(Course eachCourse : courses){
+            if(eachCourse.getTermTitle().equals(title)){
+                filteredCourses.add(eachCourse);
+            }
+        }
         final CourseAdapter adapter = new CourseAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter.setCourses(courses);
+        adapter.setCourses(filteredCourses);
     }
 
 
