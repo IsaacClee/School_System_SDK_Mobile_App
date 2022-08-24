@@ -28,6 +28,7 @@ public class CourseDetails extends AppCompatActivity {
     EditText editInstructorPhone;
     EditText editInstructorEmail;
     EditText editCourseNotes;
+    EditText editTermTitle;
     String title;
     Integer startDate;
     Integer endDate;
@@ -35,6 +36,7 @@ public class CourseDetails extends AppCompatActivity {
     String courseInstructor;
     String instructorPhone;
     String instructorEmail;
+    String termTitle;
     String courseNotes;
     int courseID;
     Repository repository;
@@ -50,6 +52,7 @@ public class CourseDetails extends AppCompatActivity {
         editCourseInstructor = findViewById(R.id.editCourseInstructor);
         editInstructorPhone = findViewById(R.id.editInstructorPhone);
         editInstructorEmail = findViewById(R.id.editInstructorEmail);
+        editTermTitle = findViewById(R.id.editTermTitle);
         editCourseNotes = findViewById(R.id.editCourseNotes);
         courseID = getIntent().getIntExtra("id", -1);
         title = getIntent().getStringExtra("title");
@@ -59,6 +62,7 @@ public class CourseDetails extends AppCompatActivity {
         courseInstructor = getIntent().getStringExtra("instructor");
         instructorPhone = getIntent().getStringExtra("phone");
         instructorEmail = getIntent().getStringExtra("email");
+        termTitle = getIntent().getStringExtra("termTitle");
         courseNotes = getIntent().getStringExtra("notes");
         editTitle.setText(title);
         editStartDate.setText(Integer.toString(startDate));
@@ -67,6 +71,7 @@ public class CourseDetails extends AppCompatActivity {
         editCourseInstructor.setText(courseInstructor);
         editInstructorPhone.setText(instructorPhone);
         editInstructorEmail.setText(instructorEmail);
+        editTermTitle.setText(termTitle);
         editCourseNotes.setText(courseNotes);
         repository = new Repository(getApplication());
         // Populate Assessment List

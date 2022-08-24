@@ -17,7 +17,7 @@
             android:name=".UI.AssessmentList"
             android:exported="false"
             android:label="Assessment List"
-            android:parentActivityName=".UI.AssessmentList" />
+            android:parentActivityName=".UI.CourseList" />
         <activity
             android:name=".UI.Test"
             android:exported="false" />
@@ -43,6 +43,12 @@
             android:exported="false"
             android:label="Course Details"
             android:parentActivityName=".UI.CourseList"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".UI.AssessmentDetails"
+            android:exported="false"
+            android:label="Assessment Details"
+            android:parentActivityName=".UI.AssessmentList"
             android:windowSoftInputMode="stateHidden" />
         <receiver
             android:name=".UI.MyReceiver"
