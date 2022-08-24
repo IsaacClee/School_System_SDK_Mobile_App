@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.c196ilee23.DataBase.Repository;
+import com.example.c196ilee23.Entity.Assessment;
 import com.example.c196ilee23.Entity.Course;
 import com.example.c196ilee23.Entity.Part;
 import com.example.c196ilee23.Entity.Product;
@@ -69,6 +70,14 @@ public class MainActivity extends AppCompatActivity {
         repo.insert(course);
         repo.insert(course2);
         repo.insert(course3);
+        Assessment assessment = new Assessment(1,"Math - Task 1", "performance", 1661271686, 1661271686, "Math");
+        Assessment assessment2 = new Assessment(2,"History - Task 1", "Objective", 1661271686, 1661271686, "History");
+        Assessment assessment3 = new Assessment(3,"English - Task 1", "performance", 1661271686, 1661271686, "English");
+        Assessment assessment4 = new Assessment(4,"Math - Task 2", "Objective", 1661271686, 1661271686, "Math");
+        repo.insert(assessment);
+        repo.insert(assessment2);
+        repo.insert(assessment3);
+        repo.insert(assessment4);
         Product product = new Product(2, "Bike", 200.00);
         repo.insert(product);
         Part part = new Part(2,"Brake", 35.00, 2);

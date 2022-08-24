@@ -97,6 +97,8 @@ public class CourseDetails extends AppCompatActivity {
     }
 
     public void goToAllAssessment(View view) {
+        Intent intent=new Intent(CourseDetails.this, AssessmentList.class);
+        startActivity(intent);
     }
 
     public void goToAssessmentDetails(View view) {
