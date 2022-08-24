@@ -22,8 +22,8 @@
 
     <ScrollView
         android:id="@+id/scrollview"
-        android:layout_width="411dp"
-        android:layout_height="217dp"
+        android:layout_width="445dp"
+        android:layout_height="255dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -93,22 +93,32 @@
                 android:clickable="true"
                 android:onClick="saveButton"
                 android:text="Save"></Button>
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="goToAllCourses"
+                android:text="View All Courses" />
+
+
         </LinearLayout>
     </ScrollView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview2"
-        android:layout_width="365dp"
-        android:layout_height="153dp"
+        android:layout_width="389dp"
+        android:layout_height="487dp"
         android:layout_marginLeft="20dp"
         android:background="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button2" />
+        app:layout_constraintTop_toBottomOf="@id/termCoursesList" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="148dp"
-        android:layout_height="54dp"
+        android:layout_height="48dp"
         android:layout_marginLeft="20dp"
         android:clickable="true"
         android:onClick="deleteTerm"
@@ -116,5 +126,18 @@
         android:text="Delete Term"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/scrollview" />
-        tools:layout_editor_absoluteX="11dp" />
+
+    <TextView
+        android:id="@+id/termCoursesList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Term assigned Courses:"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="7dp"
+        tools:layout_editor_absoluteY="301dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button2"/>
+    tools:layout_editor_absoluteX="11dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

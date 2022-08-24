@@ -1,7 +1,10 @@
 package com.example.c196ilee23.UI;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
@@ -79,7 +82,24 @@ public class TermDetails extends AppCompatActivity {
 
     }
 
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_termdetails, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
     public void goToCourseDetail(View view) {
+        Intent intent=new Intent(TermDetails.this, CourseDetails.class);
+        startActivity(intent);
     }
 
     public void deleteTerm(View view) {
@@ -91,4 +111,8 @@ public class TermDetails extends AppCompatActivity {
         repository.delete(term);
     }
 
+    public void goToAllCourses(View view) {
+        Intent intent=new Intent(TermDetails.this, CourseList.class);
+        startActivity(intent);
+    }
 }
