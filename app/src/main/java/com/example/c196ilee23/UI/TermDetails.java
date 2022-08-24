@@ -37,7 +37,7 @@ public class TermDetails extends AppCompatActivity {
         editTitle = findViewById(R.id.editTermTitle);
         editStartDate = findViewById(R.id.editTermStartDate);
         editEndDate = findViewById(R.id.editTermEndDate);
-        termID = getIntent().getIntExtra("id", 01);
+        termID = getIntent().getIntExtra("id", -1);
         title = getIntent().getStringExtra("title");
         startDate = getIntent().getIntExtra("startDate", -1);
         endDate = getIntent().getIntExtra("endDate", -1);

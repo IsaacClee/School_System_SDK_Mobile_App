@@ -36,6 +36,12 @@
             android:parentActivityName=".UI.TermList"
             android:windowSoftInputMode="stateHidden" />
 
+        <activity
+            android:name=".UI.CourseDetails"
+            android:exported="false"
+            android:label="Course Details"
+            android:parentActivityName=".UI.CourseList"
+            android:windowSoftInputMode="stateHidden" />
         <receiver
             android:name=".UI.MyReceiver"
             android:enabled="true"
