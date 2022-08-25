@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.c196ilee23.DataBase.Repository;
+import com.example.c196ilee23.Entity.Assessment;
 import com.example.c196ilee23.Entity.Course;
 import com.example.c196ilee23.R;
 
@@ -76,7 +77,19 @@ public class CourseDetails extends AppCompatActivity {
         repository = new Repository(getApplication());
         // Populate Assessment List
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        RecyclerView recyclerView = findViewById(R.id.recyclerview5);
+        Repository repo = new Repository(getApplication());
+        List<Assessment> assessments = repo.getAllAssessments();
+        List<Assessment> filteredAssessments = new ArrayList<>();
+        for(Assessment eachAssessment : assessments){
+            if(eachAssessment.getCourseTitle().equals(title)){
+                filteredAssessments.add(eachAssessment);
+            }
+        }
+        final AssessmentAdapter adapter = new AssessmentAdapter(this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter.setAssessments(filteredAssessments);
     }
 
     public boolean onCreateOptionsMenu(Menu menu){

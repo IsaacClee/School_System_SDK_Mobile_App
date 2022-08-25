@@ -22,10 +22,12 @@
 
     <ScrollView
         android:id="@+id/scrollview"
-        android:layout_width="488dp"
-        android:layout_height="390dp"
+        android:layout_width="385dp"
+        android:layout_height="600dp"
+        android:layout_marginBottom="100dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
 
 
         <LinearLayout
@@ -50,19 +52,25 @@
                     android:layout_height="wrap_content"
                     android:hint="Fall 2022"></EditText>
 
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <TextView
-                    android:layout_width="57dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="2dp"
-                    android:paddingLeft="2dp"
                     android:text="Status:" />
 
                 <EditText
                     android:id="@+id/editCourseStatus"
-                    android:layout_width="141dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:hint="Enrolled" />
-
             </LinearLayout>
 
             <LinearLayout
@@ -186,22 +194,22 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                >
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Notes:"
-                    ></TextView>
+                    android:text="Notes:"></TextView>
 
                 <EditText
                     android:id="@+id/editCourseNotes"
-                    android:layout_width="341dp"
-                    android:layout_height="52dp"
-                    android:textSize="15dp"
+                    android:layout_width="272dp"
+                    android:layout_height="115dp"
                     android:background="@color/cloud"
-                    android:hint="Enter notes here"></EditText>
+                    android:hint="Enter notes here"
+                    android:textSize="15dp"></EditText>
 
             </LinearLayout>
 
@@ -213,40 +221,37 @@
                 android:onClick="goToAllAssessment"
                 android:text="View All Assessments" />
 
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="184dp"
+                android:layout_height="43dp"
+                android:clickable="true"
+                android:onClick="deleteCourse"
+                android:paddingHorizontal="20dp"
+                android:text="Delete Course" />
+
+            <TextView
+                android:id="@+id/termCoursesList"
+                android:layout_width="268dp"
+                android:layout_height="25dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Course assigned Assessments:"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview5"
+                android:layout_width="356dp"
+                android:layout_height="359dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/white" />
+
 
         </LinearLayout>
+
+
     </ScrollView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview5"
-        android:layout_width="356dp"
-        android:layout_height="359dp"
-        android:layout_marginLeft="20dp"
-        android:background="@color/white"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/termCoursesList" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="184dp"
-        android:layout_height="43dp"
-        android:layout_marginLeft="20dp"
-        android:clickable="true"
-        android:onClick="deleteCourse"
-        android:paddingHorizontal="20dp"
-        android:text="Delete Course"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scrollview" />
-
-    <TextView
-        android:id="@+id/termCoursesList"
-        android:layout_width="268dp"
-        android:layout_height="25dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Course assigned Assessments:"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button2" />
     tools:layout_editor_absoluteX="11dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -51,4 +51,9 @@ public class TermList extends AppCompatActivity {
         Intent intent=new Intent(TermList.this, TermDetails.class);
         startActivity(intent);
     }
+
+    public void goToAllCourses(View view) {
+        Intent intent=new Intent(TermList.this, CourseList.class);
+        startActivity(intent);
+    }
 }

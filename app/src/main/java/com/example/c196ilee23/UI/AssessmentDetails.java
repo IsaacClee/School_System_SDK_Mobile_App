@@ -55,12 +55,6 @@ public class AssessmentDetails extends AppCompatActivity {
         editCourseTitle.setText(courseTitle);
         repository = new Repository(getApplication());
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        Log.d("here", String.valueOf(assessmentId));
-        Log.d("here", String.valueOf(title));
-        Log.d("here", String.valueOf(type));
-        Log.d("here", String.valueOf(startDate));
-        Log.d("here", String.valueOf(endDate));
-        Log.d("here", String.valueOf(courseTitle));
 
     }
 
