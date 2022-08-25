@@ -50,5 +50,7 @@ public class AssessmentList extends AppCompatActivity {
 
 
     public void goToAssessmentDetails(View view) {
+        Intent intent=new Intent(AssessmentList.this, AssessmentDetails.class);
+        startActivity(intent);
     }
 }

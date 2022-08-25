@@ -1,11 +1,13 @@
 package com.example.c196ilee23.UI;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,8 +19,13 @@ import com.example.c196ilee23.Entity.Course;
 import com.example.c196ilee23.Entity.Term;
 import com.example.c196ilee23.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class TermDetails extends AppCompatActivity {
     EditText editTitle;
@@ -29,6 +36,12 @@ public class TermDetails extends AppCompatActivity {
     Integer endDate;
     int termID;
     Repository repository;
+    DatePickerDialog.OnDateSetListener startDateListener;
+    DatePickerDialog.OnDateSetListener endDateListener;
+    final Calendar myCalenderStart = Calendar.getInstance();
+    final Calendar myCalenderEnd= Calendar.getInstance();
+    String myFormat;
+    SimpleDateFormat sdf;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -45,6 +58,77 @@ public class TermDetails extends AppCompatActivity {
         editStartDate.setText(Integer.toString(startDate));
         editEndDate.setText(Integer.toString(endDate));
         repository = new Repository(getApplication());
+
+        // Handles Date Fields + DatePicker
+        myFormat = "MM/dd/yy";
+        sdf = new SimpleDateFormat(myFormat, Locale.US);
+        editStartDate.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Date date;
+                String info = editStartDate.getText().toString();
+                if(info.equals("")) info = "08/25/2022";
+                try {
+                    myCalenderStart.setTime(sdf.parse(info));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                new DatePickerDialog(
+                        TermDetails.this,
+                        startDateListener,
+                        myCalenderStart.get(Calendar.YEAR),
+                        myCalenderStart.get(Calendar.MONTH),
+                        myCalenderStart.get(Calendar.DAY_OF_MONTH)
+                ).show();
+
+            }
+        });
+        editEndDate.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Date date;
+                String info = editEndDate.getText().toString();
+                if(info.equals("")) info = "08/25/2022";
+                try {
+                    myCalenderEnd.setTime(sdf.parse(info));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                new DatePickerDialog(
+                        TermDetails.this,
+                        endDateListener,
+                        myCalenderStart.get(Calendar.YEAR),
+                        myCalenderStart.get(Calendar.MONTH),
+                        myCalenderStart.get(Calendar.DAY_OF_MONTH)
+                ).show();
+
+            }
+        });
+
+
+
+        startDateListener = new DatePickerDialog.OnDateSetListener(){
+
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
+                myCalenderStart.set(Calendar.YEAR, year);
+                myCalenderStart.set(Calendar.MONTH, monthOfYear);
+                myCalenderStart.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabelStart();
+            }
+        };
+
+        endDateListener = new DatePickerDialog.OnDateSetListener(){
+
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
+                myCalenderStart.set(Calendar.YEAR, year);
+                myCalenderStart.set(Calendar.MONTH, monthOfYear);
+                myCalenderStart.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabelEnd();
+            }
+        };
+
         // Populate Course List
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         RecyclerView recyclerView = findViewById(R.id.recyclerview2);
@@ -60,6 +144,14 @@ public class TermDetails extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter.setCourses(filteredCourses);
+    }
+
+    private void updateLabelStart() {
+        editStartDate.setText(sdf.format(myCalenderStart.getTime()));
+    }
+
+    private void updateLabelEnd() {
+        editEndDate.setText(sdf.format(myCalenderEnd.getTime()));
     }
 
 

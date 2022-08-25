@@ -1,5 +1,6 @@
 package com.example.c196ilee23.UI;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +18,7 @@ import com.example.c196ilee23.Entity.Assessment;
 import com.example.c196ilee23.R;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 
@@ -33,6 +35,7 @@ public class AssessmentDetails extends AppCompatActivity {
     String courseTitle;
     int assessmentId;
     Repository repository;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -75,8 +78,62 @@ public class AssessmentDetails extends AppCompatActivity {
 
 
     public void deleteAssessment(View view) {
+        Assessment assessment;
+        assessment = new Assessment(assessmentId,
+                editTitle.getText().toString(),
+                editType.getText().toString(),
+                Integer.parseInt(editStartDate.getText().toString()),
+                Integer.parseInt(editEndDate.getText().toString()),
+                editCourseTitle.getText().toString());
+        repository.delete(assessment);
+        setContentView(R.layout.activity_assessement_list);
+        RecyclerView recyclerView = findViewById(R.id.recyclerview6);
+        Repository repo = new Repository(getApplication());
+        List<Assessment> assessments = repo.getAllAssessments();
+        final AssessmentAdapter adapter = new AssessmentAdapter(this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter.setAssessments(assessments);
+        setContentView(R.layout.activity_course_detail);
     }
 
     public void saveButton(View view) {
+        Assessment assessment;
+        if (assessmentId == -1){
+            int newId = repository.getAllAssessments().get(repository.getAllAssessments().size() - 1).getAssessmentID() + 1;
+            assessment = new Assessment(newId,
+                    editTitle.getText().toString(),
+                    editType.getText().toString(),
+                    Integer.parseInt(editStartDate.getText().toString()),
+                    Integer.parseInt(editEndDate.getText().toString()),
+                    editCourseTitle.getText().toString());
+            repository.insert(assessment);
+            setContentView(R.layout.activity_assessement_list);
+            RecyclerView recyclerView = findViewById(R.id.recyclerview6);
+            Repository repo = new Repository(getApplication());
+            List<Assessment> assessments = repo.getAllAssessments();
+            final AssessmentAdapter adapter = new AssessmentAdapter(this);
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            adapter.setAssessments(assessments);
+        } else {
+            assessment = new Assessment(assessmentId,
+                    editTitle.getText().toString(),
+                    editType.getText().toString(),
+                    Integer.parseInt(editStartDate.getText().toString()),
+                    Integer.parseInt(editEndDate.getText().toString()),
+                    editCourseTitle.getText().toString());
+            repository.insert(assessment);
+            setContentView(R.layout.activity_assessement_list);
+            RecyclerView recyclerView = findViewById(R.id.recyclerview6);
+            Repository repo = new Repository(getApplication());
+            List<Assessment> assessments = repo.getAllAssessments();
+            final AssessmentAdapter adapter = new AssessmentAdapter(this);
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            adapter.setAssessments(assessments);
+        }
+
+
     }
 }

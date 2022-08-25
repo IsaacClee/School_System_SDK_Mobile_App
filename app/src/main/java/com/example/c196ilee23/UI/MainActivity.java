@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.c196ilee23.DataBase.Repository;
@@ -13,6 +14,8 @@ import com.example.c196ilee23.Entity.Part;
 import com.example.c196ilee23.Entity.Product;
 import com.example.c196ilee23.Entity.Term;
 import com.example.c196ilee23.R;
+
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     public static int numAlert;
@@ -82,7 +85,15 @@ public class MainActivity extends AppCompatActivity {
         repo.insert(product);
         Part part = new Part(2,"Brake", 35.00, 2);
         repo.insert(part);
-
+        Log.i( "EnterHere: ", String.valueOf(MainActivity.getTimeInMillis(8,8,2022)));
     }
+
+    public static long getTimeInMillis(int day, int month, int year) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month, day);
+        return calendar.getTimeInMillis();
+    }
+
+
 
 }
