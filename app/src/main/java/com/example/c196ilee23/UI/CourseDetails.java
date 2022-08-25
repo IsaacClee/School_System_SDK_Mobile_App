@@ -32,8 +32,8 @@ public class CourseDetails extends AppCompatActivity {
     EditText editCourseNotes;
     EditText editTermTitle;
     String title;
-    Integer startDate;
-    Integer endDate;
+    String startDate;
+    String endDate;
     String status;
     String courseInstructor;
     String instructorPhone;
@@ -58,8 +58,8 @@ public class CourseDetails extends AppCompatActivity {
         editCourseNotes = findViewById(R.id.editCourseNotes);
         courseID = getIntent().getIntExtra("id", -1);
         title = getIntent().getStringExtra("title");
-        startDate = getIntent().getIntExtra("startDate", -1);
-        endDate = getIntent().getIntExtra("endDate", -1);
+        startDate = getIntent().getStringExtra("startDate");
+        endDate = getIntent().getStringExtra("endDate");
         status = getIntent().getStringExtra("status");
         courseInstructor = getIntent().getStringExtra("instructor");
         instructorPhone = getIntent().getStringExtra("phone");
@@ -67,8 +67,8 @@ public class CourseDetails extends AppCompatActivity {
         termTitle = getIntent().getStringExtra("termTitle");
         courseNotes = getIntent().getStringExtra("notes");
         editTitle.setText(title);
-        editStartDate.setText(Integer.toString(startDate));
-        editEndDate.setText(Integer.toString(endDate));
+        editStartDate.setText(startDate);
+        editEndDate.setText(endDate);
         editStatus.setText(status);
         editCourseInstructor.setText(courseInstructor);
         editInstructorPhone.setText(instructorPhone);
@@ -115,8 +115,8 @@ public class CourseDetails extends AppCompatActivity {
             int newId = repository.getAllCourse().get(repository.getAllCourse().size() - 1).getCourseID() + 1;
             course = new Course(newId,
                     editTitle.getText().toString(),
-                    Integer.parseInt(editStartDate.getText().toString()),
-                    Integer.parseInt(editEndDate.getText().toString()),
+                    editStartDate.getText().toString(),
+                    editEndDate.getText().toString(),
                     editStatus.getText().toString(),
                     editCourseInstructor.getText().toString(),
                     editInstructorPhone.getText().toString(),
@@ -136,8 +136,8 @@ public class CourseDetails extends AppCompatActivity {
         } else {
             course = new Course(courseID,
                     editTitle.getText().toString(),
-                    Integer.parseInt(editStartDate.getText().toString()),
-                    Integer.parseInt(editEndDate.getText().toString()),
+                    editStartDate.getText().toString(),
+                    editEndDate.getText().toString(),
                     editStatus.getText().toString(),
                     editCourseInstructor.getText().toString(),
                     editInstructorPhone.getText().toString(),
@@ -160,8 +160,8 @@ public class CourseDetails extends AppCompatActivity {
         Course course;
         course = new Course(courseID,
                 editTitle.getText().toString(),
-                Integer.parseInt(editStartDate.getText().toString()),
-                Integer.parseInt(editEndDate.getText().toString()),
+                editStartDate.getText().toString(),
+                editEndDate.getText().toString(),
                 editStatus.getText().toString(),
                 editCourseInstructor.getText().toString(),
                 editInstructorPhone.getText().toString(),

@@ -3,19 +3,17 @@ package com.example.c196ilee23.Entity;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.util.Date;
-
 @Entity(tableName = "assessments")
 public class Assessment {
     @PrimaryKey(autoGenerate = true)
     private int assessmentID;
     private String assessmentTitle;
     private String type;
-    private Integer startDate;
-    private Integer endDate;
+    private String startDate;
+    private String endDate;
     private String courseTitle;
 
-    public Assessment(int assessmentID, String assessmentTitle, String type, Integer startDate, Integer endDate, String courseTitle) {
+    public Assessment(int assessmentID, String assessmentTitle, String type, String startDate, String endDate, String courseTitle) {
         this.assessmentID = assessmentID;
         this.assessmentTitle = assessmentTitle;
         this.type = type;
@@ -48,11 +46,11 @@ public class Assessment {
         return type;
     }
 
-    public Integer getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public Integer getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
@@ -72,11 +70,11 @@ public class Assessment {
         this.type = type;
     }
 
-    public void setStartDate(Integer startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public void setEndDate(Integer endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 

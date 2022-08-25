@@ -68,7 +68,7 @@
                     android:id="@+id/editAssessmentStartDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="MM/DD/YYYY"></EditText>
+                    android:hint="MM/DD/YY"></EditText>
             </LinearLayout>
 
             <LinearLayout
@@ -85,7 +85,7 @@
                     android:id="@+id/editAssessmentEndDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="MM/DD/YYYY"></EditText>
+                    android:hint="MM/DD/YY"></EditText>
 
             </LinearLayout>
 

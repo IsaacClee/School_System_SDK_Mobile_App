@@ -32,8 +32,8 @@ public class TermDetails extends AppCompatActivity {
     EditText editStartDate;
     EditText editEndDate;
     String title;
-    Integer startDate;
-    Integer endDate;
+    String startDate;
+    String endDate;
     int termID;
     Repository repository;
     DatePickerDialog.OnDateSetListener startDateListener;
@@ -52,11 +52,11 @@ public class TermDetails extends AppCompatActivity {
         editEndDate = findViewById(R.id.editTermEndDate);
         termID = getIntent().getIntExtra("id", -1);
         title = getIntent().getStringExtra("title");
-        startDate = getIntent().getIntExtra("startDate", -1);
-        endDate = getIntent().getIntExtra("endDate", -1);
+        startDate = getIntent().getStringExtra("startDate");
+        endDate = getIntent().getStringExtra("endDate");
         editTitle.setText(title);
-        editStartDate.setText(Integer.toString(startDate));
-        editEndDate.setText(Integer.toString(endDate));
+        editStartDate.setText((startDate));
+        editEndDate.setText(endDate);
         repository = new Repository(getApplication());
 
         // Handles Date Fields + DatePicker
@@ -122,9 +122,9 @@ public class TermDetails extends AppCompatActivity {
 
             @Override
             public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
-                myCalenderStart.set(Calendar.YEAR, year);
-                myCalenderStart.set(Calendar.MONTH, monthOfYear);
-                myCalenderStart.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                myCalenderEnd.set(Calendar.YEAR, year);
+                myCalenderEnd.set(Calendar.MONTH, monthOfYear);
+                myCalenderEnd.set(Calendar.DAY_OF_MONTH, dayOfMonth);
                 updateLabelEnd();
             }
         };
@@ -161,8 +161,8 @@ public class TermDetails extends AppCompatActivity {
             int newId = repository.getAllTerms().get(repository.getAllTerms().size() - 1).getTermId() + 1;
             term = new Term(newId,
                     editTitle.getText().toString(),
-                    Integer.parseInt(editStartDate.getText().toString()),
-                    Integer.parseInt(editEndDate.getText().toString()));
+                    editStartDate.getText().toString(),
+                    editEndDate.getText().toString());
             repository.insert(term);
             setContentView(R.layout.activity_term_list);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -176,8 +176,8 @@ public class TermDetails extends AppCompatActivity {
         } else {
             term = new Term(termID,
                     editTitle.getText().toString(),
-                    Integer.parseInt(editStartDate.getText().toString()),
-                    Integer.parseInt(editEndDate.getText().toString()));
+                    editStartDate.getText().toString(),
+                    editEndDate.getText().toString());
             repository.update(term);
             setContentView(R.layout.activity_term_list);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -216,8 +216,8 @@ public class TermDetails extends AppCompatActivity {
         Term term;
         term = new Term(termID,
                 editTitle.getText().toString(),
-                Integer.parseInt(editStartDate.getText().toString()),
-                Integer.parseInt(editEndDate.getText().toString()));
+                editStartDate.getText().toString(),
+                editEndDate.getText().toString());
         repository.delete(term);
         setContentView(R.layout.activity_term_list);
         RecyclerView recyclerView = findViewById(R.id.recyclerview3);

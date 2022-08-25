@@ -10,10 +10,10 @@ public class Term {
     @PrimaryKey(autoGenerate = true)
     private int termId;
     private String termTitle;
-    private Integer startDate;
-    private Integer endDate;
+    private String startDate;
+    private String endDate;
 
-    public Term(int termId, String termTitle, Integer startDate, Integer endDate){
+    public Term(int termId, String termTitle, String startDate, String endDate){
         this.termId = termId;
         this.termTitle = termTitle;
         this.startDate = startDate;
@@ -38,11 +38,11 @@ public class Term {
         this.termTitle = termTitle;
     }
 
-    public void setStartDate(Integer startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public void setEndDate(Integer endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 
@@ -54,11 +54,11 @@ public class Term {
         return termTitle;
     }
 
-    public Integer getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public Integer getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 }

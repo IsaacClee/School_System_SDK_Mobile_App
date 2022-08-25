@@ -4,7 +4,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "parts")
-public class Part {
+public class  Part {
     @PrimaryKey(autoGenerate = true)
     private int partID;
     private String partName;

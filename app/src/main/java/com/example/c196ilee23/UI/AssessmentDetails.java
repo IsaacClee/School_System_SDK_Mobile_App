@@ -30,8 +30,8 @@ public class AssessmentDetails extends AppCompatActivity {
     EditText editCourseTitle;
     String title;
     String type;
-    Integer startDate;
-    Integer endDate;
+    String startDate;
+    String endDate;
     String courseTitle;
     int assessmentId;
     Repository repository;
@@ -48,13 +48,13 @@ public class AssessmentDetails extends AppCompatActivity {
         assessmentId = getIntent().getIntExtra("id", -1);
         title = getIntent().getStringExtra("title");
         type = getIntent().getStringExtra("type");
-        startDate = getIntent().getIntExtra("startDate", -1);
-        endDate = getIntent().getIntExtra("endDate", -1);
+        startDate = getIntent().getStringExtra("startDate");
+        endDate = getIntent().getStringExtra("endDate");
         courseTitle = getIntent().getStringExtra("courseTitle");
         editTitle.setText(title);
         editType.setText(type);
-        editStartDate.setText(Integer.toString(startDate));
-        editEndDate.setText(Integer.toString(endDate));
+        editStartDate.setText(startDate);
+        editEndDate.setText(endDate);
         editCourseTitle.setText(courseTitle);
         repository = new Repository(getApplication());
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -82,8 +82,8 @@ public class AssessmentDetails extends AppCompatActivity {
         assessment = new Assessment(assessmentId,
                 editTitle.getText().toString(),
                 editType.getText().toString(),
-                Integer.parseInt(editStartDate.getText().toString()),
-                Integer.parseInt(editEndDate.getText().toString()),
+                editStartDate.getText().toString(),
+                editEndDate.getText().toString(),
                 editCourseTitle.getText().toString());
         repository.delete(assessment);
         setContentView(R.layout.activity_assessement_list);
@@ -104,8 +104,8 @@ public class AssessmentDetails extends AppCompatActivity {
             assessment = new Assessment(newId,
                     editTitle.getText().toString(),
                     editType.getText().toString(),
-                    Integer.parseInt(editStartDate.getText().toString()),
-                    Integer.parseInt(editEndDate.getText().toString()),
+                    editStartDate.getText().toString(),
+                    editEndDate.getText().toString(),
                     editCourseTitle.getText().toString());
             repository.insert(assessment);
             setContentView(R.layout.activity_assessement_list);
@@ -120,8 +120,8 @@ public class AssessmentDetails extends AppCompatActivity {
             assessment = new Assessment(assessmentId,
                     editTitle.getText().toString(),
                     editType.getText().toString(),
-                    Integer.parseInt(editStartDate.getText().toString()),
-                    Integer.parseInt(editEndDate.getText().toString()),
+                    editStartDate.getText().toString(),
+                    editEndDate.getText().toString(),
                     editCourseTitle.getText().toString());
             repository.insert(assessment);
             setContentView(R.layout.activity_assessement_list);
