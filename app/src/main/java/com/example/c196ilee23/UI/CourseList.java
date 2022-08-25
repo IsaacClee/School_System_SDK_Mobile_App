@@ -50,4 +50,9 @@ public class CourseList extends AppCompatActivity {
         Intent intent=new Intent(CourseList.this, CourseDetails.class);
         startActivity(intent);
     }
+
+    public void goToAllAssessments(View view) {
+        Intent intent=new Intent(CourseList.this, AssessmentList.class);
+        startActivity(intent);
+    }
 }

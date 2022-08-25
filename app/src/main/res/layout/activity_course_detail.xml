@@ -50,7 +50,7 @@
                     android:id="@+id/editCourseTitle"
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
-                    android:hint="Fall 2022"></EditText>
+                    android:hint="History 101"></EditText>
 
 
             </LinearLayout>

@@ -72,12 +72,30 @@ public class TermDetails extends AppCompatActivity {
                     Integer.parseInt(editStartDate.getText().toString()),
                     Integer.parseInt(editEndDate.getText().toString()));
             repository.insert(term);
+            setContentView(R.layout.activity_term_list);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            RecyclerView recyclerView = findViewById(R.id.recyclerview3);
+            Repository repo = new Repository(getApplication());
+            List<Term> terms = repo.getAllTerms();
+            final TermAdapter adapter = new TermAdapter(this);
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            adapter.setTerms(terms);
         } else {
             term = new Term(termID,
                     editTitle.getText().toString(),
                     Integer.parseInt(editStartDate.getText().toString()),
                     Integer.parseInt(editEndDate.getText().toString()));
             repository.update(term);
+            setContentView(R.layout.activity_term_list);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            RecyclerView recyclerView = findViewById(R.id.recyclerview3);
+            Repository repo = new Repository(getApplication());
+            List<Term> terms = repo.getAllTerms();
+            final TermAdapter adapter = new TermAdapter(this);
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            adapter.setTerms(terms);
         }
 
     }
@@ -109,6 +127,14 @@ public class TermDetails extends AppCompatActivity {
                 Integer.parseInt(editStartDate.getText().toString()),
                 Integer.parseInt(editEndDate.getText().toString()));
         repository.delete(term);
+        setContentView(R.layout.activity_term_list);
+        RecyclerView recyclerView = findViewById(R.id.recyclerview3);
+        Repository repo = new Repository(getApplication());
+        List<Term> terms = repo.getAllTerms();
+        final TermAdapter adapter = new TermAdapter(this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter.setTerms(terms);
     }
 
     public void goToAllCourses(View view) {

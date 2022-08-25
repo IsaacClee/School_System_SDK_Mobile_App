@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.c196ilee23.DataBase.Repository;
 import com.example.c196ilee23.Entity.Assessment;
 import com.example.c196ilee23.Entity.Course;
+import com.example.c196ilee23.Entity.Term;
 import com.example.c196ilee23.R;
 
 import java.util.ArrayList;
@@ -109,9 +110,73 @@ public class CourseDetails extends AppCompatActivity {
 
 
     public void saveButton(View view) {
+        Course course;
+        if (courseID == -1){
+            int newId = repository.getAllCourse().get(repository.getAllCourse().size() - 1).getCourseID() + 1;
+            course = new Course(newId,
+                    editTitle.getText().toString(),
+                    Integer.parseInt(editStartDate.getText().toString()),
+                    Integer.parseInt(editEndDate.getText().toString()),
+                    editStatus.getText().toString(),
+                    editCourseInstructor.getText().toString(),
+                    editInstructorPhone.getText().toString(),
+                    editInstructorEmail.getText().toString(),
+                    editCourseNotes.getText().toString(),
+                    editTermTitle.getText().toString());
+            repository.insert(course);
+            setContentView(R.layout.activity_course_list);
+            RecyclerView recyclerView = findViewById(R.id.recyclerview4);
+            Repository repo = new Repository(getApplication());
+            List<Course> courses = repo.getAllCourse();
+            final CourseAdapter adapter = new CourseAdapter(this);
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            adapter.setCourses(courses);
+
+        } else {
+            course = new Course(courseID,
+                    editTitle.getText().toString(),
+                    Integer.parseInt(editStartDate.getText().toString()),
+                    Integer.parseInt(editEndDate.getText().toString()),
+                    editStatus.getText().toString(),
+                    editCourseInstructor.getText().toString(),
+                    editInstructorPhone.getText().toString(),
+                    editInstructorEmail.getText().toString(),
+                    editCourseNotes.getText().toString(),
+                    editTermTitle.getText().toString());
+            repository.insert(course);
+            setContentView(R.layout.activity_course_list);
+            RecyclerView recyclerView = findViewById(R.id.recyclerview4);
+            Repository repo = new Repository(getApplication());
+            List<Course> courses = repo.getAllCourse();
+            final CourseAdapter adapter = new CourseAdapter(this);
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            adapter.setCourses(courses);
+        }
     }
 
     public void deleteCourse(View view) {
+        Course course;
+        course = new Course(courseID,
+                editTitle.getText().toString(),
+                Integer.parseInt(editStartDate.getText().toString()),
+                Integer.parseInt(editEndDate.getText().toString()),
+                editStatus.getText().toString(),
+                editCourseInstructor.getText().toString(),
+                editInstructorPhone.getText().toString(),
+                editInstructorEmail.getText().toString(),
+                editCourseNotes.getText().toString(),
+                editTermTitle.getText().toString());
+        repository.delete(course);
+        setContentView(R.layout.activity_course_list);
+        RecyclerView recyclerView = findViewById(R.id.recyclerview4);
+        Repository repo = new Repository(getApplication());
+        List<Course> courses = repo.getAllCourse();
+        final CourseAdapter adapter = new CourseAdapter(this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter.setCourses(courses);
     }
 
     public void goToAllAssessment(View view) {
@@ -120,5 +185,7 @@ public class CourseDetails extends AppCompatActivity {
     }
 
     public void goToAssessmentDetails(View view) {
+        Intent intent=new Intent(CourseDetails.this, AssessmentDetails.class);
+        startActivity(intent);
     }
 }
