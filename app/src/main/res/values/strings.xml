@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">C196 ilee23</string>
-    <string name="channel_name">mychannel</string>
-    <string name="channel_description">myChannelDescription</string>
+    <string name="course_start_channel_name">mychannel</string>
+    <string name="course_start_channel_description">myChannelDescription</string>
+    <string name="course_end_channel_name">mychannel</string>
+    <string name="course_end_channel_description">myChannelDescription</string>
 </resources>

@@ -1,9 +1,11 @@
 package com.example.c196ilee23.UI;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,7 +19,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.c196ilee23.DataBase.Repository;
 import com.example.c196ilee23.Entity.Assessment;
 import com.example.c196ilee23.Entity.Course;
-import com.example.c196ilee23.Entity.Term;
 import com.example.c196ilee23.R;
 
 import java.text.ParseException;
@@ -198,13 +199,39 @@ public class CourseDetails extends AppCompatActivity {
                 sendIntent.setAction(Intent.ACTION_SEND);
                 sendIntent.putExtra(Intent.EXTRA_TEXT,editCourseNotes.getText().toString());
                 sendIntent.putExtra(Intent.EXTRA_TITLE, editTitle.getText().toString() + " Notes:");
-                sendIntent.setType("text/plan");
+                sendIntent.setType("text/plain");
                 Intent shareIntent = Intent.createChooser(sendIntent, null);
                 startActivity(shareIntent);
                 return true;
             case R.id.notifyStartDate:
+                String startDateFromScreen = editStartDate.getText().toString();
+                Date myStartDate = null;
+                try {
+                    myStartDate = sdf.parse(startDateFromScreen);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                Long trigger = myStartDate.getTime();
+                Intent startIntent = new Intent( CourseDetails.this, DateReceiver.class );
+                startIntent.putExtra("courseStartNotification", "Alert: " +  editTitle.getText().toString() + " starts today! " + "Instructor: " + editCourseInstructor.getText().toString());
+                PendingIntent sender = PendingIntent.getBroadcast(CourseDetails.this, MainActivity.numAlert++ , startIntent, 0);
+                AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                alarmManager.set(AlarmManager.RTC_WAKEUP, trigger, sender);
                 return true;
             case R.id.notifyEndDate:
+                String endDateFromScreen = editEndDate.getText().toString();
+                Date myEndDate = null;
+                try {
+                    myEndDate = sdf.parse(endDateFromScreen);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                Long trigger2 = myEndDate.getTime();
+                Intent endIntent = new Intent( CourseDetails.this, DateReceiver.class );
+                endIntent.putExtra("courseStartNotification", "Alert: " +  editTitle.getText().toString() + " ends today! " + "Instructor: " + editCourseInstructor.getText().toString());
+                PendingIntent sender2 = PendingIntent.getBroadcast(CourseDetails.this, MainActivity.numAlert++ , endIntent, 0);
+                AlarmManager alarmManager2 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                alarmManager2.set(AlarmManager.RTC_WAKEUP, trigger2, sender2);
                 return true;
 
         }

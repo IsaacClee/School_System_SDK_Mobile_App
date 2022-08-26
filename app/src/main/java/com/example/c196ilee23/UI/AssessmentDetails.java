@@ -1,6 +1,9 @@
 package com.example.c196ilee23.UI;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -152,6 +155,37 @@ public class AssessmentDetails extends AppCompatActivity {
             case android.R.id.home:
                 this.finish();
                 return true;
+            case R.id.notifyStartDate2:
+                String startDateFromScreen = editStartDate.getText().toString();
+                Date myStartDate = null;
+                try {
+                    myStartDate = sdf.parse(startDateFromScreen);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                Long trigger = myStartDate.getTime();
+                Intent startIntent = new Intent( AssessmentDetails.this, DateReceiver.class );
+                startIntent.putExtra("courseStartNotification", "Alert: " +  editTitle.getText().toString() + " starts today! " + "Type: " + editType.getText().toString());
+                PendingIntent sender = PendingIntent.getBroadcast(AssessmentDetails.this, MainActivity.numAlert++ , startIntent, 0);
+                AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                alarmManager.set(AlarmManager.RTC_WAKEUP, trigger, sender);
+                return true;
+            case R.id.notifyEndDate2:
+                String endDateFromScreen = editEndDate.getText().toString();
+                Date myEndDate = null;
+                try {
+                    myEndDate = sdf.parse(endDateFromScreen);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                Long trigger2 = myEndDate.getTime();
+                Intent endIntent = new Intent( AssessmentDetails.this, DateReceiver.class );
+                endIntent.putExtra("courseStartNotification", "Alert: " +  editTitle.getText().toString() + " ends today! " + "Type: " + editType.getText().toString());
+                PendingIntent sender2 = PendingIntent.getBroadcast(AssessmentDetails.this, MainActivity.numAlert++ , endIntent, 0);
+                AlarmManager alarmManager2 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                alarmManager2.set(AlarmManager.RTC_WAKEUP, trigger2, sender2);
+                return true;
+
         }
 
         return super.onOptionsItemSelected(item);
