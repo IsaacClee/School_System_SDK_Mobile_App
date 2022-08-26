@@ -24,6 +24,7 @@
         android:id="@+id/scrollview"
         android:layout_width="423dp"
         android:layout_height="549dp"
+        android:background="@drawable/border"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 

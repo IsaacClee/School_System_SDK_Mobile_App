@@ -193,6 +193,20 @@ public class CourseDetails extends AppCompatActivity {
             case android.R.id.home:
                 this.finish();
                 return true;
+            case R.id.share:
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT,editCourseNotes.getText().toString());
+                sendIntent.putExtra(Intent.EXTRA_TITLE, editTitle.getText().toString() + " Notes:");
+                sendIntent.setType("text/plan");
+                Intent shareIntent = Intent.createChooser(sendIntent, null);
+                startActivity(shareIntent);
+                return true;
+            case R.id.notifyStartDate:
+                return true;
+            case R.id.notifyEndDate:
+                return true;
+
         }
 
         return super.onOptionsItemSelected(item);

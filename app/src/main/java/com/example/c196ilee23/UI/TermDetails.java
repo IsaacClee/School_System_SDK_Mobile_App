@@ -1,5 +1,6 @@
 package com.example.c196ilee23.UI;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -218,6 +219,11 @@ public class TermDetails extends AppCompatActivity {
         List<Course> courses = repo.getAllCourse();
         for(Course eachCourse : courses){
             if(eachCourse.getTermTitle().equals(title)){
+                new AlertDialog.Builder(TermDetails.this)
+                        .setTitle("Deletion restriction")
+                        .setMessage("You cannot delete a term with a assigned course." +
+                                "Please remove all courses from this term to continue.")
+                        .show();
                 return;
             } else {
                 term = new Term(termID,
