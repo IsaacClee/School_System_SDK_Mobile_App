@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.132" />
         <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.202" />
         <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/drawable/ic_baseline_eco_24.xml" value="0.1935" />
         <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/drawable/ic_baseline_pedal_bike_24.xml" value="0.1935" />
@@ -11,19 +12,19 @@
         <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/layout-land/activity_main.xml" value="0.15696649029982362" />
         <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/layout/activity_assessement_list.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/layout/activity_assessment_details.xml" value="0.22192028985507245" />
-        <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/layout/activity_course_detail.xml" value="0.22192028985507245" />
+        <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/layout/activity_course_detail.xml" value="0.1" />
         <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/layout/activity_course_list.xml" value="0.22192028985507245" />
         <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/layout/activity_part_detail.xml" value="0.33" />
         <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/layout/activity_part_list.xml" value="0.22" />
         <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/layout/activity_product_list.xml" value="0.22" />
         <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/layout/activity_term_detail.xml" value="0.24909420289855072" />
-        <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/layout/activity_term_list.xml" value="0.13108614232209737" />
+        <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/layout/activity_term_list.xml" value="0.5" />
         <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/layout/activity_test.xml" value="0.2453125" />
         <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/layout/assessment_list_item.xml" value="0.3625" />
         <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/layout/course_list_item.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/layout/product_list_item.xml" value="0.1400709219858156" />
-        <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/layout/term_list_item.xml" value="0.1" />
+        <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/layout/term_list_item.xml" value="0.22" />
         <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/menu/menu_assessmentdetails.xml" value="0.24270833333333333" />
         <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/menu/menu_assessmentlist.xml" value="0.24270833333333333" />
         <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/menu/menu_coursedetails.xml" value="0.19914529914529913" />
@@ -32,6 +33,8 @@
         <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/menu/menu_termdetails.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/menu/menu_termlist.xml" value="0.3614583333333333" />
         <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/menu/partdetail.xml" value="0.2713541666666667" />
+        <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.132" />
+        <entry key="..\:/Users/isaac/StudioProjects/C196_Mobile_Apps/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.132" />
       </map>
     </option>
   </component>

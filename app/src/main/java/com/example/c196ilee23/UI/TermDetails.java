@@ -214,19 +214,27 @@ public class TermDetails extends AppCompatActivity {
 
     public void deleteTerm(View view) {
         Term term;
-        term = new Term(termID,
-                editTitle.getText().toString(),
-                editStartDate.getText().toString(),
-                editEndDate.getText().toString());
-        repository.delete(term);
-        setContentView(R.layout.activity_term_list);
-        RecyclerView recyclerView = findViewById(R.id.recyclerview3);
         Repository repo = new Repository(getApplication());
-        List<Term> terms = repo.getAllTerms();
-        final TermAdapter adapter = new TermAdapter(this);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter.setTerms(terms);
+        List<Course> courses = repo.getAllCourse();
+        for(Course eachCourse : courses){
+            if(eachCourse.getTermTitle().equals(title)){
+                return;
+            } else {
+                term = new Term(termID,
+                        editTitle.getText().toString(),
+                        editStartDate.getText().toString(),
+                        editEndDate.getText().toString());
+                repository.delete(term);
+                setContentView(R.layout.activity_term_list);
+                RecyclerView recyclerView = findViewById(R.id.recyclerview3);
+                List<Term> terms = repo.getAllTerms();
+                final TermAdapter adapter = new TermAdapter(this);
+                recyclerView.setAdapter(adapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(this));
+                adapter.setTerms(terms);
+            }
+        }
+
     }
 
     public void goToAllCourses(View view) {
