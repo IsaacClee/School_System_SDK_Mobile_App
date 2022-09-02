@@ -166,7 +166,7 @@ public class AssessmentDetails extends AppCompatActivity {
                 Long trigger = myStartDate.getTime();
                 Intent startIntent = new Intent( AssessmentDetails.this, DateReceiver.class );
                 startIntent.putExtra("courseStartNotification", "Alert: " +  editTitle.getText().toString() + " starts today! " + "Type: " + editType.getText().toString());
-                PendingIntent sender = PendingIntent.getBroadcast(AssessmentDetails.this, MainActivity.numAlert++ , startIntent, 0);
+                PendingIntent sender = PendingIntent.getBroadcast(AssessmentDetails.this, MainActivity.numAlert++ , startIntent, PendingIntent.FLAG_IMMUTABLE);
                 AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                 alarmManager.set(AlarmManager.RTC_WAKEUP, trigger, sender);
                 return true;
@@ -181,7 +181,7 @@ public class AssessmentDetails extends AppCompatActivity {
                 Long trigger2 = myEndDate.getTime();
                 Intent endIntent = new Intent( AssessmentDetails.this, DateReceiver.class );
                 endIntent.putExtra("courseStartNotification", "Alert: " +  editTitle.getText().toString() + " ends today! " + "Type: " + editType.getText().toString());
-                PendingIntent sender2 = PendingIntent.getBroadcast(AssessmentDetails.this, MainActivity.numAlert++ , endIntent, 0);
+                PendingIntent sender2 = PendingIntent.getBroadcast(AssessmentDetails.this, MainActivity.numAlert++ , endIntent, PendingIntent.FLAG_IMMUTABLE);
                 AlarmManager alarmManager2 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                 alarmManager2.set(AlarmManager.RTC_WAKEUP, trigger2, sender2);
                 return true;
