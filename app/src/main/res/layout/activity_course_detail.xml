@@ -167,7 +167,7 @@
                     android:layout_marginHorizontal="40dp"
                     android:clickable="true"
                     android:onClick="saveButton"
-                    android:text="Save"></Button>
+                    android:text="Save Course"></Button>
 
             </LinearLayout>
 

@@ -113,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:clickable="true"
                 android:onClick="saveButton"
-                android:text="Save"></Button>
+                android:text="Save Assessment"></Button>
 
             <Button
                 android:id="@+id/deleteAssessmentButton"
